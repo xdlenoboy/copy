@@ -1,0 +1,16 @@
+Options -Indexes
+
+RewriteEngine On
+
+#RewriteCond %{REQUEST_URI} \.(jpg|jpeg|png|gif|bmp|webp)$ [NC]
+#RewriteCond %{REQUEST_URI} !/ast/decals/Max_Design_Pro.png$ [NC]
+#RewriteRule ^.*$ /ast/decals/Max_Design_Pro.png [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^(.*)\.aspx$ $1 [L]
+RewriteRule ^(.*)\.ashx$ $1 [L]
+RewriteRule ^(.*)\.html$ $1 [L]
+
+ErrorDocument 403 /Error.aspx?code=403
+ErrorDocument 404 /Error.aspx?code=404
